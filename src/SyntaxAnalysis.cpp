@@ -1,11 +1,14 @@
 #include "SyntaxAnalysis.h"
 #include <set>
 
-void SyntaxAnalysis::Analisis(std::vector<Term> v) {
+void SyntaxAnalysis::Analysis(std::vector<Term> v) {
 
 	int status = 0;
 	int count_bracket = 0;
-	for (int i = 0; i < v.size(); i++) {
+
+	size_t sz = v.size();
+
+	for (int i = 0; i < sz; i++) {
 		switch (status)
 		{
 		case 0:
@@ -96,6 +99,14 @@ void SyntaxAnalysis::Analisis(std::vector<Term> v) {
 		default:
 			break;
 		}
+	}
+	if (status==2) {
+		std::string incorrect_symbol = "Expression cannnot end with a bracket!";
+		throw incorrect_symbol;
+	}
+	if (status == 4) {
+		std::string incorrect_symbol = "Expression cannnot end with a operation!";
+		throw incorrect_symbol;
 	}
 	if (count_bracket != 0) {
 		std::string incorrect_symbol = "The number of breackets doesn't match!";

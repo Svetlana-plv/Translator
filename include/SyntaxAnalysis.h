@@ -8,7 +8,7 @@
 class SyntaxAnalysis {
 public:
 
-	static void Analisis(std::vector<Term> v);
+	static void Analysis(std::vector<Term> v);
 
 	static std::vector<Term> ToTerms(std::string infix);
 };

@@ -28,7 +28,7 @@ void Translator::execute() {
 			std::vector<Term> v;
 			v = SyntaxAnalysis::ToTerms(this->infix);
 
-			SyntaxAnalysis::Analisis(v);
+			SyntaxAnalysis::Analysis(v);
 
 			for (int i = 0; i < v.size(); i++) {
 				std::cout << "term "<< i << ":" << v[i].type << " " << v[i].term << std::endl;
