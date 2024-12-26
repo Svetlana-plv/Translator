@@ -23,28 +23,13 @@ void Translator::execute() {
 
 			this->infix = str;
 			LexicalAnalysis::LexAnaliysis(this->infix);
-			std::cout << this->infix << std::endl;
 
 			std::vector<Term> v;
 			v = SyntaxAnalysis::ToTerms(this->infix);
 
 			SyntaxAnalysis::Analysis(v);
 
-			for (int i = 0; i < v.size(); i++) {
-				std::cout << "term "<< i << ":" << v[i].type << " " << v[i].term << std::endl;
-			}
-
-
-
-			//std::cout << Utility::priority["="] << std::endl;
 			this->postfix=Postfix::ToPostfix(v);
-			std::cout << std::endl;
-			std::string postf;
-			for (int i = 0; i < postfix.size(); i++) {
-				std::cout << "term " << i << ":" << postfix[i].type << " " << postfix[i].term << std::endl;
-				postf += static_cast<std::string>(postfix[i].term);
-			}
-			std::cout << postf << std::endl;
 
 			float result;
 			result = Calculator::Calculating(this->postfix);
