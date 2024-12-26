@@ -13,7 +13,7 @@ void LexicalAnalysis::LexAnaliysis(std::string infix) {
 		char cur = infix[i];
 		if (cur == ' ') continue;
 
-		// check if every symbol is a letter or an operation sign
+		// check if every symbol is a letter, number or operation sign
 		bool flage = false;
 		flage |= ('0' <= cur && cur <= '9');
 		flage |= ('a' <= cur && cur <= 'z');

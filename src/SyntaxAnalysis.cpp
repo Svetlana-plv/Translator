@@ -118,6 +118,7 @@ std::vector<Term> SyntaxAnalysis::ToTerms(std::string infix) {
 	std::vector<Term> terms;
 	int i = 0;
 	while (i < infix.size()) {
+
 		if (infix[i] == '(' || infix[i] == ')') {
 			std::string elem;
 			elem += infix[i];
@@ -139,8 +140,7 @@ std::vector<Term> SyntaxAnalysis::ToTerms(std::string infix) {
 				incorrect_symbol += std::to_string(i);
 				throw incorrect_symbol;
 			}
-			//number.push_back(infix[i]);
-			//i++;
+
 			int point_counter = 0;
 			while (i < infix.size() && '0' <= infix[i] && infix[i] <= '9' || infix[i] == '.') {
 				number.push_back(infix[i]);
@@ -155,17 +155,21 @@ std::vector<Term> SyntaxAnalysis::ToTerms(std::string infix) {
 				std::string error = "Operator cannot be point!";
 				throw error;
 			}
+
 			terms.push_back(Term(number, NUMBER));
 			continue;
 		}
 		else if ('a' <= infix[i] && infix[i] <= 'z' || 'A' <= infix[i] && infix[i] <= 'Z') {
+
 			std::string var;
 			var.push_back(infix[i]);
 			i++;
+
 			while (i < infix.size() && 'a' <= infix[i] && infix[i] <= 'z' || 'A' <= infix[i] && infix[i] <= 'Z' || '0' <= infix[i] && infix[i] <= '9') {
 				var.push_back(infix[i]);
 				i++;
 			}
+
 			bool flag = true;
 			for (auto x : Utility::constants) {
 				if (var == x.first) {

@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include <string>
-#include <cmath>
 #include "Structs.h"
 
 class Postfix {
