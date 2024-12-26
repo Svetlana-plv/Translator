@@ -183,10 +183,6 @@ std::vector<Term> SyntaxAnalysis::ToTerms(std::string infix) {
 				terms.push_back(Term(var, VARIABLE));
 			}
 		}
-		if (infix[i] == ' ') {
-			i++;
-			continue;
-		}
 	}
 	return terms;
 }

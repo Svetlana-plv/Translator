@@ -91,5 +91,22 @@ TEST(Postfix, can_transform_expressinon_from_lection)
 	EXPECT_EQ("123*+45/6-*", postf);
 }
 
+TEST(Postfix, can_transform_crash_test_from_elena)
+{
+	std::string str = "(2+3*1.0)*4+8*(1.25-0.25*1.0)/(8*0.5+4)-1";
+	std::vector<Term> v;
+	std::string postf;
+
+	v = SyntaxAnalysis::ToTerms(str);
+	std::vector<Term> postfix = Postfix::ToPostfix(v);;
+
+
+	for (int i = 0; i < postfix.size(); i++) {
+		postf += static_cast<std::string>(postfix[i].term);
+	}
+
+	EXPECT_EQ("231.0*+4*81.250.251.0*-*80.5*4+/+1-", postf);
+}
+
 
 

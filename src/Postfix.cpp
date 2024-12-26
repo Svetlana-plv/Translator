@@ -28,7 +28,8 @@ std::vector<Term> Postfix::ToPostfix(std::vector<Term> v) {
 			}
 			else if (Utility::priority[op] <= Utility::priority[stack.Top().term]) {
 
-				while (!stack.Empty() && (Utility::priority[op] <= Utility::priority[stack.Top().term] || stack.Top().term != "(")) {
+				while (!stack.Empty() && Utility::priority[op] <= Utility::priority[stack.Top().term] && stack.Top().term != "(") {
+
 					postfix.push_back(stack.Top());
 					stack.Pop();
 				}
