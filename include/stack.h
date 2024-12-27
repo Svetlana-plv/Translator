@@ -37,7 +37,6 @@ public:
 
 	T& Top() { 
 		if (top < 0) throw "Stack is empty!";
-		//std::cout << top << std::endl;
 		return pMem[top]; 
 	}
 

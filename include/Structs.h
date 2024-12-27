@@ -1,6 +1,5 @@
 #pragma once
 #include <string>
-#include <unordered_set>
 #include <set>
 #include <unordered_map>
 #include <vector>
@@ -8,7 +7,6 @@
 
 struct Utility{
 public:
-	//inline static const std::set<std::string> operations = { '+', '-', '/', '*', '^' };
 	static std::set<char> operations;
 	static std::unordered_map<std::string, int> priority;
 	static std::unordered_map<std::string, float> constants;
@@ -25,10 +23,6 @@ enum termtype {
 };
 
 class Term {
-private:
-
-
-
 public:
 	std::string term;
 	termtype type;

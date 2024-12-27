@@ -15,10 +15,6 @@ private:
 
 public:
 
-	
-
-	//Translator(std::string user_infix) : infix(user_infix) {}
-
 	std::string get_infix();
 	std::vector<Term> get_postfix();
 
