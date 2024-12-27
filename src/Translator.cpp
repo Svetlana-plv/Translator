@@ -31,14 +31,6 @@ void Translator::execute() {
 
 			this->postfix=Postfix::ToPostfix(v);
 
-			std::cout << std::endl;
-			std::string postf;
-			for (int i = 0; i < postfix.size(); i++) {
-				std::cout << "term " << i << ":" << postfix[i].type << " " << postfix[i].term << std::endl;
-				postf += static_cast<std::string>(postfix[i].term);
-			}
-			std::cout << postf << std::endl;
-
 			float result;
 			result = Calculator::Calculating(this->postfix);
 			std::cout << "Result: " << result << std::endl;
